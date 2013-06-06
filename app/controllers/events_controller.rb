@@ -42,8 +42,14 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(params[:event])
 
+    @title_new = @event.eventitem.item+@event.user.firstname
+    @colornew = @event.eventitem.color
+
     respond_to do |format|
       if @event.save
+        @event.update_attributes(:title => @title_new, :color => @colornew)
+
+
         format.html { redirect_to @event, :notice => 'Event was successfully created.' }
         format.json { render :json => @event, :status => :created, :location => @event }
       else
@@ -58,8 +64,18 @@ class EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
 
+    @item_new= Eventitem.first(params[:eventitem_id])
+    @user_new= User.first(params[:user_id])
+
+    @title_new = @event.eventitem.item+@event.user.firstname
+    @color_new = @event.eventitem.color
     respond_to do |format|
       if @event.update_attributes(params[:event])
+        @item_new= Eventitem.first(params[:eventitem_id])
+        @user_new= User.first(params[:user_id])
+        @title_new = @event.eventitem.item+@event.user.firstname
+        @color_new = @event.eventitem.color
+        @event.update_attributes(:title => @title_new, :color =>@color_new)
         format.html { redirect_to @event, :notice => 'Event was successfully updated.' }
         format.json { head :no_content }
       else
@@ -81,3 +97,4 @@ class EventsController < ApplicationController
     end
   end
 end
+

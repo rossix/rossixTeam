@@ -1,30 +1,28 @@
-<%- model_class = Event -%>
+<%- model_class = Project -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human %></h1>
 </div>
 
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
-  <dd><%= @event.title %></dd>
+  <dd><%= @project.title %></dd>
   <dt><strong><%= model_class.human_attribute_name(:starts_at) %>:</strong></dt>
-  <dd><%= @event.starts_at %></dd>
+  <dd><%= @project.starts_at %></dd>
   <dt><strong><%= model_class.human_attribute_name(:ends_at) %>:</strong></dt>
-  <dd><%= @event.ends_at %></dd>
+  <dd><%= @project.ends_at %></dd>
   <dt><strong><%= model_class.human_attribute_name(:all_day) %>:</strong></dt>
-  <dd><%= @event.all_day %></dd>
+  <dd><%= @project.all_day %></dd>
   <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
-  <dd><%= @event.description %></dd>
-    <dt><strong><%= model_class.human_attribute_name(:user) %>:</strong></dt>
-      <dd><%= @event.user.firstname %></dd>
+  <dd><%= @project.description %></dd>
 </dl>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
-              events_path, :class => 'btn'  %>
+              projects_path, :class => 'btn'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_event_path(@event), :class => 'btn' %>
+              edit_project_path(@project), :class => 'btn' %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              event_path(@event),
+              project_path(@project),
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>

@@ -5,11 +5,14 @@
     <div>
     <%= image_tag("rossixSpLogo6.jpg", :align=>'left') %>
     <%= image_tag("rossixTeam.jpg", :align=>'right') %>
-    <br /> <br><br><br><br>
+    <br /> <br><br><br>
     </div>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "jquery" %>
+    <%= javascript_include_tag "jquery-ui" %>
   <%= csrf_meta_tags %>
+
 </head>
 <body>
 <div class="navbar navbar">
@@ -25,8 +28,9 @@
         <ul class="nav">
           <li><%= link_to "Events", events_path %></li>
           <li><%= link_to "Kalender", calendar_path %></li>
-          <li><%= link_to "User" %></li>
-          <li><%= link_to "Projekte" %></li>
+          <li><%= link_to "User", users_path%></li>
+          <li><%= link_to "Projekte", projects_path %></li>
+          <li><%= link_to "Projekt-Kalender", projectcalendar_path %></li>
         </ul>
       </div>
     </div>
@@ -46,3 +50,4 @@
 
 </body>
 </html>
+

@@ -25,7 +25,7 @@
         <ul class="nav">
           <li><%= link_to "Events", events_path %></li>
           <li><%= link_to "Kalender", calendar_path %></li>
-          <li><%= link_to "User", users_path%></li>
+          <li><%= link_to "User" %></li>
           <li><%= link_to "Projekte", projects_path%></li>
           <li><%= link_to "Projekt-Kalender", projectcalendar_path %></li>
         </ul>
@@ -39,11 +39,11 @@
     <div class="span9"><%= yield %></div>
 
       <div class="span3">
-        <h2> </h2>
- <%= image_tag("Apps-date-icon.png", :align=>'right') %>
+
+          <%= image_tag("Apps-date-icon.png", :align=>'right') %>
           <br/>  <br/><br/><br/> <br/> <br/> <br/>
-          <br/>  <br/><br/><br/> <br/> <br/> <br/>
-                  <h2>Team-Kalender </h2>
+          <h2>Projekt-Kalender </h2>
+
 
     </div>
   </div>

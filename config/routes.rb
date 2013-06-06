@@ -1,7 +1,17 @@
 FullcalendarAssets::Application.routes.draw do
+  resources :eventitems
+
+
+  resources :users
+
   resource :calendar, :only => [:show]
 
+  resource :projectcalendar, :only => [:show]
+
+
   resources :events
+
+  resources :projects
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

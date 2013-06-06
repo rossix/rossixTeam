@@ -23,4 +23,3 @@
 //= require fullcalendar
 
 //= require_tree .
-

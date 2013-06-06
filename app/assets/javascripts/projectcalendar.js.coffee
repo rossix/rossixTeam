@@ -1,5 +1,5 @@
 $(document).ready ->
-  $('#calendar').fullCalendar
+  $('#projectcalendar').fullCalendar
     editable: true,
     header:
       left: 'prev,next today',
@@ -12,11 +12,11 @@ $(document).ready ->
     slotMinutes: 30,
 
     eventSources: [{
-      url: '/events',
+      url: '/projects',
     }],
 
     timeFormat: 'h:mm t{ - h:mm t} ',
-    dragOpacity: "0.2"
+    dragOpacity: "0.5"
 
     eventDrop: (event, dayDelta, minuteDelta, allDay, revertFunc) ->
       updateEvent(event);
@@ -26,7 +26,7 @@ $(document).ready ->
 
 
 updateEvent = (the_event) ->
-  $.update "/events/" + the_event.id,
+  $.update "/projects/" + the_event.id,
     event:
       title: the_event.title,
       starts_at: "" + the_event.start,

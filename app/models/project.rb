@@ -1,9 +1,6 @@
-  class Event < ActiveRecord::Base
-  belongs_to :user
-  belongs_to :eventitem
-
+  class Project < ActiveRecord::Base
   scope :between, lambda {|start_time, end_time|
-    {:conditions => ["? < starts_at < ?", Event.format_date(start_time), Event.format_date(end_time)] }
+    {:conditions => ["? < starts_at < ?", Project.format_date(start_time), Project.format_date(end_time)] }
   }
 
   # need to override the json view to return what full_calendar is expecting.
