@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  todo: MyString
+  description: MyString
+  user_id: 
+  project_id: 1
+
+two:
+  todo: MyString
+  description: MyString
+  user_id: 
+  project_id: 1
