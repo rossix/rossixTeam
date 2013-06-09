@@ -12,22 +12,22 @@ $(document).ready ->
     slotMinutes: 30,
 
     eventSources: [{
-      url: '/projects',
+      url: '/projectevents',
     }],
 
     timeFormat: 'h:mm t{ - h:mm t} ',
     dragOpacity: "0.5"
 
-    eventDrop: (event, dayDelta, minuteDelta, allDay, revertFunc) ->
-      updateEvent(event);
+    eventDrop: (projectevent, dayDelta, minuteDelta, allDay, revertFunc) ->
+      updateEvent(projectevent);
 
-    eventResize: (event, dayDelta, minuteDelta, revertFunc) ->
-      updateEvent(event);
+    eventResize: (projectevent, dayDelta, minuteDelta, revertFunc) ->
+      updateEvent(projectevent);
 
 
 updateEvent = (the_event) ->
-  $.update "/projects/" + the_event.id,
-    event:
+  $.update "/projectevents/" + the_event.id,
+    projectevent:
       title: the_event.title,
       starts_at: "" + the_event.start,
       ends_at: "" + the_event.end,

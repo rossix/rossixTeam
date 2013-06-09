@@ -76,6 +76,10 @@ class EventsController < ApplicationController
         @title_new = @event.eventitem.item+@event.user.firstname
         @color_new = @event.eventitem.color
         @event.update_attributes(:title => @title_new, :color =>@color_new)
+        @event_check_enddate = Event.find(params[:id]).ends_at
+        if  @event_check_enddate == nil
+          @event.update_attributes(:ends_at => @event.starts_at)
+        end
         format.html { redirect_to @event, :notice => 'Event was successfully updated.' }
         format.json { head :no_content }
       else

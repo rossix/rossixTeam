@@ -1,6 +1,6 @@
-<%= form_for @project          , :html => { :class => 'form-horizontal' } do |f| %>
+<%= form_for @projectevent          , :html => { :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
-    <%= f.label :title, :class => 'control-label' %>
+    <%= f.label :titleX, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :title, :class => 'text_field' %>
     </div>
@@ -19,6 +19,18 @@
           <%= f.text_field :color, :class => 'text_field' %>
         </div>
       </div>
+    <div class="control-group">
+           <%= f.label :project_id, :class => 'control-label' %>
+           <div class="controls">
+             <%= f.text_field :project_id, :class => 'text_field' %>
+           </div>
+         </div>
+    <div class="control-group">
+               <%= f.label :eventtype, :class => 'control-label' %>
+               <div class="controls">
+                 <%= f.text_field :eventtype, :class => 'text_field' %>
+               </div>
+             </div>
 
     <div class="control-group">
        <%= f.label :starts_at, :class => 'control-label' %>
@@ -39,6 +51,7 @@
     <div class="controls">
       <%= f.check_box :all_day, :class => 'check_box' %>
     </div>
+
   </div>
   <div class="control-group">
     <%= f.label :description, :class => 'control-label' %>
@@ -52,4 +65,5 @@
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 projectevents_path, :class => 'btn' %>
   </div>
+
 <% end %>

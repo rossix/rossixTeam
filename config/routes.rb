@@ -1,7 +1,14 @@
 FullcalendarAssets::Application.routes.draw do
+  resources :todos
+
+
+  resources :projects
+
+
+
+
   resources :eventitems
-
-
+  resources :projectevents
   resources :users
 
   resource :calendar, :only => [:show]
@@ -11,13 +18,17 @@ FullcalendarAssets::Application.routes.draw do
 
   resources :events
 
-  resources :projects
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
+  match 'project/show_todos/:id' => 'projects#show_todos'
+  match 'project/add_milestone/:id' => 'projects#add_milestone'
+  match 'project/add_todo/:id' => 'projects#add_todo'
+  match 'projectevents/new/:id' => 'projectevents#new'
   # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:

@@ -1,10 +1,12 @@
 $(document).ready ->
   $('#calendar').fullCalendar
     editable: true,
+    firstDay: 1,
     header:
       left: 'prev,next today',
       center: 'title',
       right: 'month,basicWeek,basicDay'
+
     defaultView: 'month',
     monthNames: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember']
 
@@ -16,7 +18,7 @@ $(document).ready ->
     }],
 
     timeFormat: 'h:mm t{ - h:mm t} ',
-    dragOpacity: "0.2"
+    dragOpacity: "0.5"
 
     eventDrop: (event, dayDelta, minuteDelta, allDay, revertFunc) ->
       updateEvent(event);

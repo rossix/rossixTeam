@@ -1,19 +1,21 @@
 class ProjectsController < ApplicationController
-  # GET /Projects
-  # GET /Projects.json
+  # GET /projects
+  # GET /projects.json
   def index
-    @projects = Project.scoped
-    @projects = Project.between(params['start'], params['end']) if (params['start'] && params['end'])
+    @projects = Project.all
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @projects }
     end
   end
 
-  # GET /Projects/1
-  # GET /Projects/1.json
+  # GET /projects/1
+  # GET /projects/1.json
   def show
     @project = Project.find(params[:id])
+    id=params[:id]
+    @projectevents = Projectevent.find_all_by_eventtype_and_project_id("milestone",id)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -21,8 +23,16 @@ class ProjectsController < ApplicationController
     end
   end
 
-  # GET /Projects/new
-  # GET /Projects/new.json
+  def add_milestone
+           projectid=params[:project]
+           redirect_to "/projectevents/new/#{projectid}"
+
+  end
+
+
+
+  # GET /projects/new
+  # GET /projects/new.json
   def new
     @project = Project.new
 
@@ -32,18 +42,25 @@ class ProjectsController < ApplicationController
     end
   end
 
-  # GET /Projects/1/edit
+  # GET /projects/1/edit
   def edit
     @project = Project.find(params[:id])
+    id=params[:id]
+        @projectevents = Projectevent.find_all_by_eventtype_and_project_id("milestone",id)
+
   end
 
-  # POST /Projects
-  # POST /Projects.json
+  # POST /projects
+  # POST /projects.json
   def create
     @project = Project.new(params[:project])
+    @projectevent = Projectevent.new(params[:project])
 
     respond_to do |format|
       if @project.save
+        @projectevent.project_id = @project.id
+        @projectevent.eventtype = "project"
+         @projectevent.save
         format.html { redirect_to @project, :notice => 'Project was successfully created.' }
         format.json { render :json => @project, :status => :created, :location => @project }
       else
@@ -53,13 +70,16 @@ class ProjectsController < ApplicationController
     end
   end
 
-  # PUT /Projects/1
-  # PUT /Projects/1.json
+  # PUT /projects/1
+  # PUT /projects/1.json
   def update
     @project = Project.find(params[:id])
+    id = params[:id]
+    @projectevent = Projectevent.find_by_eventtype_and_project_id("project" , id)
 
     respond_to do |format|
       if @project.update_attributes(params[:project])
+        @projectevent.update_attributes(params[:project])
         format.html { redirect_to @project, :notice => 'Project was successfully updated.' }
         format.json { head :no_content }
       else
@@ -69,8 +89,8 @@ class ProjectsController < ApplicationController
     end
   end
 
-  # DELETE /Projects/1
-  # DELETE /Projects/1.json
+  # DELETE /projects/1
+  # DELETE /projects/1.json
   def destroy
     @project = Project.find(params[:id])
     @project.destroy
