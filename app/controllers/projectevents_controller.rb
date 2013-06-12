@@ -14,11 +14,13 @@ class ProjecteventsController < ApplicationController
   # GET /Projects/1.json
   def show
     @projectevent = Projectevent.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render :json => @projectevent }
-    end
+    @project_id = @projectevent.project_id
+    @project = Project.find(@project_id)
+    redirect_to "/projects/#{@project_id}"
+    #respond_to do |format|
+    #  format.html # show.html.erb
+    #  format.json { render :json => @projectevent }
+    #end
   end
 
   # GET /Projects/new

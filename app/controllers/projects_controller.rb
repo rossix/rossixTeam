@@ -14,8 +14,9 @@ class ProjectsController < ApplicationController
   # GET /projects/1.json
   def show
     @project = Project.find(params[:id])
-    id=params[:id]
-    @projectevents = Projectevent.find_all_by_eventtype_and_project_id("milestone",id)
+        id=params[:id]
+            @projectevents = Projectevent.find_all_by_eventtype_and_project_id("milestone",id)
+            @todos = Todo.find_all_by_project_id(id)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -47,6 +48,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     id=params[:id]
         @projectevents = Projectevent.find_all_by_eventtype_and_project_id("milestone",id)
+        @todos = Todo.find_all_by_project_id(id)
 
   end
 

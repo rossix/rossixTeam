@@ -1,3 +1,5 @@
 class Todo < ActiveRecord::Base
-  attr_accessible :description, :project_id, :todo, :user_id
+  belongs_to :user
+  belongs_to :project
+  attr_accessible :description, :project_id, :todotitle, :user_id,:state, :position
 end

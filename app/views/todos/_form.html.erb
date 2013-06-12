@@ -1,33 +1,50 @@
-<%= form_for(@todo) do |f| %>
-  <% if @todo.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@todo.errors.count, "error") %> prohibited this todo from being saved:</h2>
-
-      <ul>
-      <% @todo.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= form_for @todo, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :todotitle, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :todotitle, :class => 'text_field' %>
     </div>
-  <% end %>
+  </div>
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :description, :class => 'text_field' %>
+    </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :todo %><br />
-    <%= f.text_field :todo %>
+    <div class="control-group">
+            <%= f.label :username, :class => 'control-label' %>
+            <div class="controls">
+                <%= collection_select(:todo, :user_id,
+                                      User.all(:order => 'firstname'), :id, :firstname) %>
+            </div>
+        </div>
+
+  <div class="control-group">
+    <%= f.label :project_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :project_id, :class => 'number_field' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.text_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :project_id %><br />
-    <%= f.number_field :project_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+
+
+
+    <div class="control-group">
+        <%= f.label :status, :class => 'control-label' %>
+        <div class="controls">
+
+
+    <%= select(:todo, :state, [@todo.state,
+                         "offen",
+                         "in Arbeit",
+                         "fertig",]) %></td>
+       </div>
+        </div>
+
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                "/projectcalendar", :class => 'btn' %>
   </div>
 <% end %>

@@ -1,4 +1,7 @@
 FullcalendarAssets::Application.routes.draw do
+  resources :teams
+
+
   resources :todos
 
 
@@ -26,9 +29,9 @@ FullcalendarAssets::Application.routes.draw do
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   match 'project/show_todos/:id' => 'projects#show_todos'
-  match 'project/add_milestone/:id' => 'projects#add_milestone'
-  match 'project/add_todo/:id' => 'projects#add_todo'
   match 'projectevents/new/:id' => 'projectevents#new'
+  match 'todos/new/:id' => 'todos#new'
+  match 'project/:id/edit' => 'projects#edit'
   # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:

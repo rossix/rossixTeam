@@ -25,7 +25,7 @@ class TodosController < ApplicationController
   # GET /todos/new.json
   def new
     @todo = Todo.new
-
+    @todo.project_id=params[:id]
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @todo }
