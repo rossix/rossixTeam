@@ -31,7 +31,7 @@ FullcalendarAssets::Application.routes.draw do
   match 'project/show_todos/:id' => 'projects#show_todos'
   match 'projectevents/new/:id' => 'projectevents#new'
   match 'todos/new/:id' => 'todos#new'
-  match 'project/:id/edit' => 'projects#edit'
+  # match 'project/:id/edit' => 'projects#edit'
   # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:

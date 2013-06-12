@@ -63,8 +63,8 @@
                         <th><%= t '.actions', :default => t("helpers.actions") %></th>
                     </tr>
                     </thead>
-
-                    <% @projectevents.each do |projectevent| %>
+                    <%if @projectevents =! []  %>
+                      <% @projectevents.each do |projectevent| %>
                         <tr>
                             <td>
                                 <span class="badge badge-warning">Milestone</span>  <%= link_to projectevent.title, projectevents_path(projectevent) %>
@@ -83,6 +83,7 @@
                                             :class => 'btn btn-mini btn-danger' %>
                             </td>
                         </tr>
+                      <% end %>
                     <% end %>
                     </tbody>
                 </table>
@@ -112,7 +113,7 @@
                     </tr>
                     </thead>
                     <tbody>
-
+                    <%if @ptodos =! []  %>
                     <% @todos.each do |todo| %>
 
                         <tr class="todos" id="todo_<%= todo.id %>">
@@ -142,7 +143,7 @@
                         </tr>
 
                     <% end %>
-
+                    <% end %>
 
                     </tbody>
                 </table>

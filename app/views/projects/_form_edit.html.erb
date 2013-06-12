@@ -48,7 +48,7 @@
             <li><a href="#todos" data-toggle="tab">Todos</a></li>
         </ul>
             <div class="tab-content">
-              <div class="tab-pane fade in " id="milestones">
+              <div class="tab-pane fade in active" id="milestones">
                 <%- model_class2 = Projectevent -%>
 
                 <h3> Project-Milestones</h3>
@@ -84,6 +84,7 @@
                             </td>
                         </tr>
                     <% end %>
+
                     </tbody>
                 </table>
 
@@ -99,10 +100,10 @@
 
 
 
-            <div class="tab-pane fade in active" id="todos">
+            <div class="tab-pane fade in " id="todos">
                 <h2><%= t '.title', :default => model_class.model_name.human.pluralize %></h2>
 
-                <table class="table table-striped" id="todosX">
+                <table class="table table-striped" id="todos">
                     <thead>
                     <tr>
                         <th></th>
@@ -140,8 +141,8 @@
                                             :class => 'btn btn-mini btn-danger' %>
                             </td>
                         </tr>
+                      <%end %>
 
-                    <% end %>
 
 
                     </tbody>
