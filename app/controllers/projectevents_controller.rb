@@ -23,12 +23,24 @@ class ProjecteventsController < ApplicationController
     #end
   end
 
+  def showmilestone
+      @projectevent = Projectevent.find(params[:id])
+      @project_id = @projectevent.project_id
+      @project = Project.find(@project_id)
+
+      #respond_to do |format|
+      #  format.html # show.html.erb
+      #  format.json { render :json => @projectevent }
+      #end
+    end
+
   # GET /Projects/new
   # GET /Projects/new.json
   def new
     @projectevent = Projectevent.new
     @projectevent.project_id=params[:id]
     @projectevent.eventtype="milestone"
+    @projectevent.color="orange"
 
     respond_to do |format|
       format.html # new.html.erb
@@ -45,6 +57,7 @@ class ProjecteventsController < ApplicationController
   # POST /Projects.json
   def create
     @projectevent = Projectevent.new(params[:projectevent])
+
 
     respond_to do |format|
       if @projectevent.save

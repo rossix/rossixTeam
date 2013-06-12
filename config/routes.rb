@@ -30,7 +30,9 @@ FullcalendarAssets::Application.routes.draw do
   #   match 'products/:id' => 'catalog#view'
   match 'project/show_todos/:id' => 'projects#show_todos'
   match 'projectevents/new/:id' => 'projectevents#new'
+  match 'projectevent/:id' => 'projectevents#showmilestone'
   match 'todos/new/:id' => 'todos#new'
+
   # match 'project/:id/edit' => 'projects#edit'
   # Keep in mind you can assign values other than :controller and :action
 

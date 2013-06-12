@@ -61,12 +61,14 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = Project.new(params[:project])
+    @project.all_day = "true"
     @projectevent = Projectevent.new(params[:project])
 
     respond_to do |format|
       if @project.save
         @projectevent.project_id = @project.id
         @projectevent.eventtype = "project"
+        @projectevent.all_day = "true"
          @projectevent.save
         format.html { redirect_to @project, :notice => 'Project was successfully created.' }
         format.json { render :json => @project, :status => :created, :location => @project }

@@ -37,6 +37,13 @@
         </div>
     </div>
 
+    <div class="control-group">
+                <%= f.label :projektlink, :class => 'control-label' %>
+                <div class="controls">
+                    <%= f.text_field :projectlink, :class => 'text_area', :rows => 5 %>
+                </div>
+        </div>
+
     <div class="form-actions">
         <%= f.submit nil, :class => 'btn btn-primary' %>
         <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
@@ -67,10 +74,11 @@
                       <% @projectevents.each do |projectevent| %>
                         <tr>
                             <td>
-                                <span class="badge badge-warning">Milestone</span>  <%= link_to projectevent.title, projectevents_path(projectevent) %>
+                                <span class="badge badge-warning">Milestone</span> <a href=<%= "/projectevent/#{projectevent.id}" %> ><%= projectevent.title %></a>
+
                             </td>
-                            <td><%= projectevent.starts_at %></td>
-                            <td><%= projectevent.ends_at %></td>
+                            <td><%= projectevent.starts_at.strftime("%d.%m.%y") %></td>
+                            <td><%= projectevent.ends_at.strftime("%d.%m.%y") %></td>
                             <td><%= projectevent.state %></td>
 
                             <td>
@@ -107,8 +115,9 @@
                     <thead>
                     <tr>
                         <th></th>
-                        <th>Status</th>
+
                         <th>User</th>
+                        <th>Status</th>
                         <th><%= t '.actions', :default => t("helpers.actions") %></th>
                     </tr>
                     </thead>
@@ -120,7 +129,7 @@
                             <% if todo.state=="offen"; @badge= "badge-important"; end %>
                             <% if todo.state=="in Arbeit"; @badge= "badge-warning"; end %>
                             <% if todo.state=="fertig"; @badge= "badge-success"; end %>
-                            <%= todo.state %>
+
                             <td>
                                     <span class="badge <%= "#{@badge}" %>">ToDo</span>
 
@@ -128,7 +137,7 @@
                                 <%= link_to todo.todotitle, todo_path(todo) %>
                             </td>
 
-                            <td><%= todo.user_id %></td>
+                            <td><%= todo.user.name %></td>
                             <td><%= todo.state %></td>
 
                             <td>
