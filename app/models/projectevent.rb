@@ -1,6 +1,7 @@
   class Projectevent < ActiveRecord::Base
     belongs_to :user
     belongs_to :project
+
   scope :between, lambda {|start_time, end_time|
     {:conditions => ["? < starts_at < ?", Projectevent.format_date(start_time), Projectevent.format_date(end_time)] }
   }

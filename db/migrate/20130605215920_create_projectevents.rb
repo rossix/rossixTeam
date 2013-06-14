@@ -9,6 +9,7 @@ class CreateProjectevents < ActiveRecord::Migration
          t.text :description
          t.string :className
          t.string :color
+         t.integer :user_id
          t.timestamps
        end
 

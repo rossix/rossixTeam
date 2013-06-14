@@ -68,6 +68,7 @@ class ProjectsController < ApplicationController
       if @project.save
         @projectevent.project_id = @project.id
         @projectevent.eventtype = "project"
+        @projectevent.color= "darkgrey"
         @projectevent.all_day = "true"
          @projectevent.save
         format.html { redirect_to @project, :notice => 'Project was successfully created.' }

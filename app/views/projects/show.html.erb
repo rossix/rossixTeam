@@ -9,6 +9,8 @@
       <dd><%= @project.starts_at.strftime("%d.%m.%y") %></dd>
       <dt><strong>Projekt-Ende:</strong></dt>
       <dd><%= @project.ends_at.strftime("%d.%m.%y") %></dd>
+        <dt><strong>Verantwortlich:</strong></dt>
+                      <dd><%= @project.user.firstname %></dd>
       <dt><strong>Beschreibung:</strong></dt>
       <dd><%= @project.description %></dd>
       <dt><strong>Projekt-Link:</strong></dt>
