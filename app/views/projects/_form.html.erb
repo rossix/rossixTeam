@@ -10,7 +10,7 @@
     <div class="control-group">
         <%= f.label :username, :class => 'control-label' %>
         <div class="controls">
-            <%= collection_select(:event, :user_id,
+            <%= collection_select(:project, :user_id,
                                   User.all(:order => 'firstname'), :id, :firstname) %>
         </div>
     </div>
