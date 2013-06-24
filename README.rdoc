@@ -1,33 +1,56 @@
-== Using fullCalendar with Rails 3.2
+== rossixTeam
 
-I recently made several asset gems out of the FullCalendar and the jquery.rest plugins.  This is a simple example to see them in action.  Take a look at the GemFile and the application.js and application.css files to see those in action.
+... ist eine OpenSource Team-Verwaltung mit einem Event-Kalender und einem Projektkalender.
+
+=== Features:
+
+- AJAX Kalender (FullCalendar sei Dank !)
+- frei konfigurierbare Event-Items (Rufbereitschaft, Schichten, Krankheit, Urlaub)
+- frei definierbare Teams
+- Authentication mit User / Team-Zuordnung
+- Password-Reset via Mail
+
+=== Versionen:
+rossixTeam Fix versions: 0.9
+-Bug:
+rxteam-6 — User-Tabelle aufbauen (CRUD)
+
+-Task:
+rxteam-3 — events-Tabelle aufbauen (inkl. CRUD-Actions)
+rxteam-8 — Datepicker integrieren
+rxteam-9 — Calendar aufbauen
+
+rossixTeam Fix versions: 0.9.1
+Task
+rxteam-10 — Project-cruds aufbauen
+rxteam-11 — todo Cruds aufbauen
+rxteam-12 — milestone Cruds aufbauen
 
 
-Fullcalendar is an awesome jquery calendar.  You can see it in action at this url:
+rossixTeam Fix versions: 0.9.2
+Task
+rxteam-13 — UI mit Tab-fields aufbauen
+rxteam-14 — go backs optimieren
 
-http://arshaw.com/fullcalendar/
 
-This is an example of how to use it with Rails.
+Fix versions: 0.9.3
+Bug
+rxteam-16 — user-selection Project funktioniert nicht
+rxteam-18 — Milestoe User wird nicht gespeichert
+rxteam-23 — Projekt-Kalender-Eintrag landet in Taam-Kalender
+Task
+rxteam-17 — Project color auf darkgrey setzen
+rxteam-20 — User Name in Project anzeigen
 
-Here's the gist...  You can follow along commit-by-commit with the checkin comments; they explain everything pretty well.
-
-- started with a stock Rails 3.2 app
-- added my asset gems to add full calendar and jquery.rest into the mix
-- created an event model and controller as stock scaffolding, then modified the controller slightly to accept the query parameters for ranges that FullCalendar will throw at it.
-- created a controller/view for the calendar, but its pretty much just an empty div that FullCalendar enhances.
-- glued it all together with the javascript in app/assets/javascripts/calendar.js.coffee
-
-Yes, the UI for the events is just scaffolding.  I might pretty it up in the future, but the whole point of this exercise is a minimal example of using those two gems.
-
-I had previously done this with Rails 3 at the rails3_fullcalendar repo of mine; that has now been OBE by this repo.
-
-Have fun.
-
---Running this on your own machine.
-
-- check it out.
-- bundle
-- migrate
-- start the app
-- look at it in a browser
-
+Fix versions: 0.9.4
+Bug
+rxteam-25 — Bei "new" wird der Verantwortliche nicht mitangelegt.
+Task
+rxteam-2 — Login
+rxteam-19 — Links in Milestones und Todos
+rxteam-26 — Team CRUDS aufbauen
+rxteam-27 — TEAM in Events integrieren
+rxteam-28 — TEAM in Projects und PRojectEvents instegrieren
+rxteam-29 — TEAM in USer und Login integrieren
+rxteam-30 — TEAM in Milestones und Todos integrieren
+rxteam-31 — Mailer anpassen
