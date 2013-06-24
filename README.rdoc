@@ -11,46 +11,81 @@
 - Password-Reset via Mail
 
 === Versionen:
+
 rossixTeam Fix versions: 0.9
+
 -Bug:
+
 rxteam-6 — User-Tabelle aufbauen (CRUD)
 
 -Task:
+
 rxteam-3 — events-Tabelle aufbauen (inkl. CRUD-Actions)
+
 rxteam-8 — Datepicker integrieren
+
 rxteam-9 — Calendar aufbauen
 
+
 rossixTeam Fix versions: 0.9.1
+
 Task
+
 rxteam-10 — Project-cruds aufbauen
+
 rxteam-11 — todo Cruds aufbauen
+
 rxteam-12 — milestone Cruds aufbauen
 
 
+
 rossixTeam Fix versions: 0.9.2
+
+
 Task
 rxteam-13 — UI mit Tab-fields aufbauen
+
+
 rxteam-14 — go backs optimieren
 
 
 Fix versions: 0.9.3
+
 Bug
+
 rxteam-16 — user-selection Project funktioniert nicht
+
 rxteam-18 — Milestoe User wird nicht gespeichert
+
 rxteam-23 — Projekt-Kalender-Eintrag landet in Taam-Kalender
+
 Task
+
 rxteam-17 — Project color auf darkgrey setzen
+
 rxteam-20 — User Name in Project anzeigen
 
 Fix versions: 0.9.4
+
 Bug
+
 rxteam-25 — Bei "new" wird der Verantwortliche nicht mitangelegt.
+
 Task
+
+
 rxteam-2 — Login
+
 rxteam-19 — Links in Milestones und Todos
+
 rxteam-26 — Team CRUDS aufbauen
+
 rxteam-27 — TEAM in Events integrieren
-rxteam-28 — TEAM in Projects und PRojectEvents instegrieren
+
+
 rxteam-29 — TEAM in USer und Login integrieren
+
 rxteam-30 — TEAM in Milestones und Todos integrieren
+
 rxteam-31 — Mailer anpassen
+
