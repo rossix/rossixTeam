@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+    @projects = Project.all(:conditions => "team_id = #{current_user.team_id}")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -61,12 +61,15 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = Project.new(params[:project])
+    @team_id = current_user.team_id
     @project.all_day = "true"
+    @project.team_id = @team_id
     @projectevent = Projectevent.new(params[:project])
 
     respond_to do |format|
       if @project.save
         @projectevent.project_id = @project.id
+        @projectevent.team_id = @team_id
         @projectevent.eventtype = "project"
         @projectevent.color= "darkgrey"
         @projectevent.all_day = "true"

@@ -28,8 +28,9 @@
 
 
            <% if current_user %>
-             Logged in as <%= current_user.email %>.
-             <li><%= link_to "Log Out", logout_path %></li>
+                <li><%= link_to "Log Out", logout_path %></li>
+             <li> <BR>Logged in as <%= current_user.email %> <%= current_user.team_id %> </li>.
+
            <% else %>
              <li><%= link_to "Sign Up", signup_path %> or
              <%= link_to "Log In", login_path %>  </li>
@@ -61,9 +62,10 @@
             <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
-                <li><%= link_to "Events bearbeiten", events_path %></li>
-                <li><%= link_to "Event-Gruppen bearbeiten", eventitems_path %></li>
                 <li><%= link_to "User bearbeiten", users_path %></li>
+                <li><%= link_to "Teams bearbeiten", teams_path %></li>
+                <li><%= link_to "Event-Gruppen bearbeiten", eventitems_path %></li>
+
             <!-- dropdown menu links -->
         </ul>
       </div>

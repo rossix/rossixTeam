@@ -2,8 +2,11 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.scoped
-    @events = Event.between(params['start'], params['end']) if (params['start'] && params['end'])
+
+    #team = current_user.team_id
+    @events = Event.scoped(:conditions => "team_id = #{current_user.team_id}") and Event.between(params['start'], params['end']) if (params['start'] && params['end'])
+    #@events = Event.between(params['start'], params['end']) if (params['start'] && params['end'])
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @events }
@@ -44,10 +47,12 @@ class EventsController < ApplicationController
 
     @title_new = @event.eventitem.item+@event.user.firstname
     @colornew = @event.eventitem.color
+    @team_id = current_user.team_id
+
 
     respond_to do |format|
       if @event.save
-        @event.update_attributes(:title => @title_new, :color => @colornew)
+        @event.update_attributes(:title => @title_new, :color => @colornew, :team_id => @team_id)
 
 
         format.html { redirect_to @event, :notice => 'Event was successfully created.' }

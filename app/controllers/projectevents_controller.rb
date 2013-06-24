@@ -2,8 +2,9 @@ class ProjecteventsController < ApplicationController
   # GET /Projects
   # GET /Projects.json
   def index
-    @projectevents = Projectevent.scoped
-    @projectevents = Projectevent.between(params['start'], params['end']) if (params['start'] && params['end'])
+    #@projectevents = Projectevent.scoped
+    @projectevents = Projectevent.scoped(:conditions => "team_id = #{current_user.team_id}") and Projectevent.between(params['start'], params['end']) if (params['start'] && params['end'])
+    #@projectevents = Projectevent.between(params['start'], params['end']) if (params['start'] && params['end'])
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @projectevents }
@@ -57,7 +58,7 @@ class ProjecteventsController < ApplicationController
   # POST /Projects.json
   def create
     @projectevent = Projectevent.new(params[:projectevent])
-
+    @projectevent.team_id = current_user.team_id
 
     respond_to do |format|
       if @projectevent.save

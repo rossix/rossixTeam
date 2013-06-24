@@ -2,7 +2,7 @@ class TodosController < ApplicationController
   # GET /todos
   # GET /todos.json
   def index
-    @todos = Todo.all
+    @todos = Todo.all(:conditions => "team_id = #{current_user.team_id}")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -41,7 +41,7 @@ class TodosController < ApplicationController
   # POST /todos.json
   def create
     @todo = Todo.new(params[:todo])
-
+    @todo.team_id = current_user.team_id
     respond_to do |format|
       if @todo.save
         format.html { redirect_to @todo, :notice => 'Todo was successfully created.' }

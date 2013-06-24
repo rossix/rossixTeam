@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   has_many :events
+  belongs_to :teams
 
-  attr_accessible :crypted_password, :email, :firstname, :group_id, :login, :name, :remember_token, :remember_token_expires_at, :salt, :telnr, :password_confirmation, :password
+  attr_accessible :crypted_password, :email, :firstname, :group_id, :login, :name, :remember_token, :remember_token_expires_at, :salt, :telnr, :password_confirmation, :password,  :team_id
   has_secure_password
   validates_presence_of :password, :on => :create
 

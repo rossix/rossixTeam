@@ -24,6 +24,13 @@
       <%= f.text_field :firstname, :class => 'text_field' %>
     </div>
   </div>
+    <div class="control-group">
+                <%= f.label :team, :class => 'control-label' %>
+                <div class="controls">
+                    <%= collection_select(:user, :team_id,
+                                          Team.all(:order => 'teamname'), :id, :teamname) %>
+                </div>
+            </div>
   <div class="control-group">
     <%= f.label :group_id, :class => 'control-label' %>
     <div class="controls">
