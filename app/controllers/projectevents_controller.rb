@@ -41,7 +41,7 @@ class ProjecteventsController < ApplicationController
     @projectevent = Projectevent.new
     @projectevent.project_id=params[:id]
     @projectevent.eventtype="milestone"
-    @projectevent.color="orange"
+    @projectevent.color="darkblue"
 
     respond_to do |format|
       format.html # new.html.erb

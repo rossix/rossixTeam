@@ -85,7 +85,7 @@
                     <% @projectevents.each do |projectevent| %>
                         <tr>
                             <td>
-                                <span class="badge badge-warning">Milestone</span> <a href=<%= "/projectevent/#{projectevent.id}" %> ><%= projectevent.title %></a>
+                                <span class="badge badge-info">Milestone</span> <a href=<%= "/projectevent/#{projectevent.id}" %> ><%= projectevent.title %></a>
                             </td>
                             <td><%= projectevent.starts_at.strftime("%d.%m.%y") %></td>
                             <td><%= projectevent.ends_at.strftime("%d.%m.%y") %></td>
