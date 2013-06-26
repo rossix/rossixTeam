@@ -20,7 +20,7 @@
 
 <div class="form-actions">
   <%= link_to t('.back'),
-              "/project/#{@todo.project_id}/edit", :class => 'btn'  %>
+              "/projectcalendar", :class => 'btn'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_todo_path(@todo), :class => 'btn' %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),

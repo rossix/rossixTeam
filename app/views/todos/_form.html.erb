@@ -19,27 +19,20 @@
                                       User.all(:order => 'firstname'), :id, :firstname) %>
             </div>
         </div>
+    <%= f.hidden_field :project_id %>
 
-  <div class="control-group">
-    <%= f.label :project_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.number_field :project_id, :class => 'number_field' %>
-    </div>
-  </div>
 
 
 
     <div class="control-group">
         <%= f.label :status, :class => 'control-label' %>
-        <div class="controls">
-
-
-    <%= select(:todo, :state, [@todo.state,
+      <div class="controls">
+        <%= select(:todo, :state, [@todo.state,
                          "offen",
                          "in Arbeit",
                          "fertig",]) %></td>
-       </div>
-        </div>
+      </div>
+    </div>
 
 
   <div class="form-actions">

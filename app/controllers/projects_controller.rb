@@ -64,15 +64,33 @@ class ProjectsController < ApplicationController
     @team_id = current_user.team_id
     @project.all_day = "true"
     @project.team_id = @team_id
+    @state = params[:project][:state]
+
+    if @state == "offen"
+                  @project.color =="darkblue"
+                elsif @state =="aktiv"
+                  @project.color = "darkgreen"
+                elsif @state =="in Arbeit"
+                     @project.color = "orange"
+                elsif @state =="kritisch"
+                     @project.color = "darkred"
+                elsif @state =="fertig"
+                     @project.color = "darkgrey"
+                end
+
     @projectevent = Projectevent.new(params[:project])
 
     respond_to do |format|
       if @project.save
+
+
+        @project.save
         @projectevent.project_id = @project.id
         @projectevent.team_id = @team_id
         @projectevent.eventtype = "project"
-        @projectevent.color= "darkgrey"
+        #@projectevent.color= "darkgrey"
         @projectevent.all_day = "true"
+        @projectevent.color = @project.color
          @projectevent.save
         format.html { redirect_to @project, :notice => 'Project was successfully created.' }
         format.json { render :json => @project, :status => :created, :location => @project }
@@ -88,11 +106,30 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
     id = params[:id]
+    @state = params[:project][:state]
+
+        if @state == "offen"
+                      @project.color =="darkblue"
+                    elsif @state =="aktiv"
+                      @project.color = "darkgreen"
+                    elsif @state =="in Arbeit"
+                         @project.color = "orange"
+                    elsif @state =="kritisch"
+                         @project.color = "darkred"
+                    elsif @state =="fertig"
+                         @project.color = "darkgrey"
+                    end
+
+
     @projectevent = Projectevent.find_by_eventtype_and_project_id("project" , id)
 
     respond_to do |format|
       if @project.update_attributes(params[:project])
+
         @projectevent.update_attributes(params[:project])
+        @projectevent.color = @project.color
+        @projectevent.save
+
         format.html { redirect_to @project, :notice => 'Project was successfully updated.' }
         format.json { head :no_content }
       else
