@@ -5,5 +5,12 @@ jQuery ->
   $('#project_starts_at').datepicker({firstDay: 1});
   $('#project_ends_at').datepicker({firstDay: 1});
   $('#myTab').tabs;
+  $('#todos').sortable(
+      axis: 'y'
+      handle: '.badge'
+      update: ->
+        $.post($(this).data('update-url'), $(this).sortable('serialize'))
+    );
 $( "#tabsy" ).tabs();
+
 

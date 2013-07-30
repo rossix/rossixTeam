@@ -1,6 +1,7 @@
 $(document).ready ->
   $('#projectcalendar').fullCalendar
     editable: true,
+    firstDay: 1,
     header:
       left: 'prev,next today',
       center: 'title',

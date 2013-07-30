@@ -2,7 +2,7 @@ class TodosController < ApplicationController
   # GET /todos
   # GET /todos.json
   def index
-    @todos = Todo.all(:conditions => "team_id = #{current_user.team_id}")
+    @todos = Todo.order("project_id").all(:conditions => "user_id = #{current_user.id} and  state != 'fertig'")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -80,4 +80,6 @@ class TodosController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
 end

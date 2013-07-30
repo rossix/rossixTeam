@@ -2,10 +2,15 @@ FullcalendarAssets::Application.routes.draw do
   resources :teams
 
 
-  resources :todos
+  resources :todos  do
+      collection { post :sort }
+    end
 
 
-  resources :projects
+
+  resources :projects   do
+        collection { post :sort }
+      end
 
 
 
@@ -35,6 +40,7 @@ FullcalendarAssets::Application.routes.draw do
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   match 'project/show_todos/:id' => 'projects#show_todos'
+  match 'projects/:id' => 'projects#sort'
   match 'projectevents/new/:id' => 'projectevents#new'
   match 'projectevent/:id' => 'projectevents#showmilestone'
   match 'todos/new/:id' => 'todos#new'

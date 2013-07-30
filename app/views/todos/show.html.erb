@@ -9,9 +9,9 @@
   <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
   <dd><%= @todo.description %></dd>
   <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
-  <dd><%= @todo.user_id %></dd>
+  <dd><%= @todo.user.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:project_id) %>:</strong></dt>
-  <dd><%= @todo.project_id %></dd>
+  <dd><%= @todo.project.title %></dd>
   <dt><strong><%= model_class.human_attribute_name(:state) %>:</strong></dt>
   <dd><%= @todo.state %></dd>
   <dt><strong><%= model_class.human_attribute_name(:position) %>:</strong></dt>

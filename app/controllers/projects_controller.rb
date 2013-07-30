@@ -16,7 +16,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
         id=params[:id]
             @projectevents = Projectevent.find_all_by_eventtype_and_project_id("milestone",id)
-            @todos = Todo.find_all_by_project_id(id)
+            @todos = Todo.order("position").find_all_by_project_id(id)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -29,6 +29,7 @@ class ProjectsController < ApplicationController
            redirect_to "/projectevents/new/#{projectid}"
 
   end
+
 
 
 
@@ -150,4 +151,15 @@ class ProjectsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def sort
+    index=1
+    params[:todo].each do |id|
+       @todo = Todo.find_by_id(id)
+        @todo.position = index
+       @todo.save
+       index=index+1
+      end
+     render :nothing => true
+   end
 end
