@@ -3684,6 +3684,7 @@
       <column name="created_at" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
       <column name="updated_at" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
       <column name="color" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="team_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="events" schema="" catalog="rossixTeam_development" type="TABLE">
@@ -3699,6 +3700,7 @@
       <column name="updated_at" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
       <column name="eventitem_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
       <column name="user_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="team_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="projectevents" schema="" catalog="rossixTeam_development" type="TABLE">
@@ -3717,6 +3719,8 @@
       <column name="state" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
       <column name="projectlink" sqlType="VARBINARY" length="255" precision="0" nullable="true" jdbcType="-3"/>
       <column name="user_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="team_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="todo_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="projects" schema="" catalog="rossixTeam_development" type="TABLE">
@@ -3732,6 +3736,8 @@
       <column name="updated_at" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
       <column name="state" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
       <column name="user_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="projectlink" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="team_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="schema_migrations" schema="" catalog="rossixTeam_development" type="TABLE">
@@ -3743,6 +3749,7 @@
       <column name="teamname" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
       <column name="created_at" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
       <column name="updated_at" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
+      <column name="description" sqlType="TEXT" length="65535" precision="0" nullable="true" jdbcType="-1"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="todos" schema="" catalog="rossixTeam_development" type="TABLE">
@@ -3755,6 +3762,8 @@
       <column name="updated_at" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
       <column name="state" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
       <column name="position" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="team_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="projectevent_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="users" schema="" catalog="rossixTeam_development" type="TABLE">
@@ -3771,6 +3780,11 @@
       <column name="telnr" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
       <column name="created_at" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
       <column name="updated_at" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
+      <column name="password_digest" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="auth_token" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="password_reset_token" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="password_reset_sent_at" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93"/>
+      <column name="team_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="twsapps" schema="" catalog="twsdb" type="TABLE">

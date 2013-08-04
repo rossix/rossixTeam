@@ -4,18 +4,27 @@
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:todotitle) %>:</strong></dt>
-  <dd><%= @todo.todotitle %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
-  <dd><%= @todo.description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
-  <dd><%= @todo.user.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:project_id) %>:</strong></dt>
-  <dd><%= @todo.project.title %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:state) %>:</strong></dt>
-  <dd><%= @todo.state %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:position) %>:</strong></dt>
-  <dd><%= @todo.position %></dd>
+
+
+    <dt><strong>Todo:</strong></dt>
+    <dd><%= @todo.todotitle %></dd>
+
+      <dt><strong>Beschreibung:</strong></dt>
+   <dd><%= @todo.description %> &nbsp </dd>
+
+
+    <dt><strong>Milestone:</strong></dt>
+      <dd><%= @todo.projectevent.title %> &nbsp</dd>
+
+
+        <dt><strong>Bearbeiter:</strong></dt>
+  <dd><%= @todo.user.name %> &nbsp</dd>
+  <dt><strong>Projekt:</strong></dt>
+  <dd><%= @todo.project.title %> &nbsp</dd>
+  <dt><strong>Status:</strong></dt>
+  <dd><%= @todo.state %> &nbsp</dd>
+  <dt><strong>Position:</strong></dt>
+  <dd><%= @todo.position %> &nbsp</dd>
 </dl>
 
 <div class="form-actions">

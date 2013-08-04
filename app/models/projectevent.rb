@@ -1,6 +1,7 @@
   class Projectevent < ActiveRecord::Base
     belongs_to :user
     belongs_to :project
+    has_many :todo
     attr_accessible :all_day, :className, :color, :description, :ends_at, :starts_at, :title, :projectlink, :user_id, :state, :project_id, :eventtype
 
   scope :between, lambda {|start_time, end_time|

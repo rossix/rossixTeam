@@ -20,7 +20,13 @@
             </div>
         </div>
     <%= f.hidden_field :project_id %>
-
+    <div class="control-group">
+                <%= f.label :milestone, :class => 'control-label' %>
+                <div class="controls">
+                    <%= collection_select(:todo, :projectevent_id,
+                                          Projectevent.find_all_by_project_id(@todo.project_id, :conditions => "eventtype = 'milestone'",:order => 'title'), :id, :title) %>
+                </div>
+            </div>
 
 
 
