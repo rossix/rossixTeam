@@ -39,7 +39,22 @@
         <h2> </h2>
  <%= image_tag("Actions-contact-date-icon.png", :align=>'right') %>
     </div>
+      <div class="span3">
+              <div class="btn-group">
+                  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                  Report
+                  <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu">
+                      <li><%= link_to "Projekt-Report", "/project/report/#{@project.id}" %></li>
+
+
+                  <!-- dropdown menu links -->
+              </ul>
+            </div>
+            </div>
   </div>
+
 </div>
 
 </body>
