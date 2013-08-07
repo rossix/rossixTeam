@@ -162,4 +162,23 @@ class ProjectsController < ApplicationController
       end
      render :nothing => true
    end
+
+  def report
+
+    @project = Project.find(params[:id])
+           id=params[:id]
+           user= User.find(@project.user_id)
+           @username = user.firstname  + " " +user.name
+           @projectevents = Projectevent.find_all_by_eventtype_and_project_id("milestone",id)
+
+          @todos = Todo.order("position").find_all_by_project_id(id)
+     #@project="Hallo"
+          pdf=ProjectPdf.new(@project, @projectevents, @todos, @username)
+          send_data pdf.report, :filename => "Projectreport ",
+                    :type => "application/pdf",
+                    :disposition => "inline"
+
+
+  end
 end
+
