@@ -12,10 +12,10 @@
       <dt><strong>Beschreibung:</strong></dt>
    <dd><%= @todo.description %> &nbsp </dd>
 
-
+    <% if @todo.projectevent != nil %>
     <dt><strong>Milestone:</strong></dt>
       <dd><%= @todo.projectevent.title %> &nbsp</dd>
-
+    <%end %>
 
         <dt><strong>Bearbeiter:</strong></dt>
   <dd><%= @todo.user.name %> &nbsp</dd>

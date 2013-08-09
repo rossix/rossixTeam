@@ -1,8 +1,19 @@
 class ProjectsController < ApplicationController
+
+  def search
+      @projectsearch = params[:title]
+      redirect_to :action => 'index', :title => @projectsearch
+    end
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all(:conditions => "team_id = #{current_user.team_id}")
+    if params[:title] != nil then
+    @projectsearch = params[:title]+"%"
+    else
+      @projectsearch ="%"
+    end
+
+    @projects = Project.all(:conditions => ["team_id = #{current_user.team_id} and title like ?","#{@projectsearch}"])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -10,9 +21,20 @@ class ProjectsController < ApplicationController
     end
   end
 
+
+  def my_projects
+    @projects = Project.all(:conditions => ["user_id = #{current_user.id}"])
+    respond_to do |format|
+          format.html # index.html.erb
+          format.json { render :json => @projects }
+        end
+  end
+
+
   # GET /projects/1
   # GET /projects/1.json
   def show
+
     @project = Project.find(params[:id])
         id=params[:id]
             @projectevents = Projectevent.find_all_by_eventtype_and_project_id("milestone",id)
@@ -139,6 +161,47 @@ class ProjectsController < ApplicationController
       end
     end
   end
+
+  def copy
+    @source_project = Project.find(params[:id])
+    @milestones = Projectevent.all(:conditions => ["project_id = ?",@source_project.id])
+    @todos = Todo.all(:conditions => ["project_id = ?",@source_project.id])
+    @dest_project = Project.new
+    @dest_project.title = "Copy of" + @source_project.title
+    @dest_project.description = "copy of " + @source_project.description
+    @dest_project.starts_at = @source_project.starts_at
+    @dest_project.ends_at = @source_project.ends_at
+    @dest_project.user_id = current_user.id
+    @dest_project.team_id = current_user.id
+    @dest_project.save
+    @project_id = @dest_project.id
+    @milestones.each do |milestone|
+      @milestone = Projectevent.new
+      @milestone.title = milestone.title
+      @milestone.starts_at = milestone.starts_at
+      @milestone.ends_at = milestone.ends_at
+      @milestone.description = milestone.description
+      @milestone.eventtype = milestone.eventtype
+      @milestone.user_id = milestone.user_id
+      @milestone.team_id = milestone.team_id
+      @milestone.color = milestone.color
+      @milestone.project_id = @project_id
+      @milestone.save
+    end
+
+    @todos.each do |todo|
+          @todo = Todo.new
+          @todo.todotitle = todo.todotitle
+          @todo.description = todo.description
+          @todo.user_id = todo.user_id
+          @todo.team_id = todo.team_id
+          @todo.project_id = @project_id
+          @todo.position = todo.position
+          @todo.save
+    end
+    redirect_to @dest_project
+  end
+
 
   # DELETE /projects/1
   # DELETE /projects/1.json

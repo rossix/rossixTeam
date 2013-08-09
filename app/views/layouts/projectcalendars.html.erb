@@ -25,6 +25,9 @@
         <ul class="nav">
           <li><%= link_to "Kalender", calendar_path %></li>
           <li><%= link_to "Projekt-Kalender", projectcalendar_path %></li>
+            <%= form_tag "/projectsearch/", :class => "navbar-search pullright", :method => :get do   %>
+                                           <%= text_field_tag :title, nil, :class => "search-query span3", :placeholder => "Search"  %>
+                                        <% end %>
         </ul>
       </div>
     </div>
@@ -48,8 +51,10 @@
                       <span class="caret"></span>
                       </a>
                       <ul class="dropdown-menu">
-                          <li><%= link_to "Projekte bearbeiten", projects_path %></li>
-                          <li><%= link_to "ToDos bearbeiten", todos_path %></li>
+                          <li><%= link_to "meine Projekte", "/myprojects" %></li>
+                          <li><%= link_to "Team Projekte", projects_path %></li>
+                          <li><%= link_to "meine offenen Todos", "/mytodos" %></li>
+                          <li><%= link_to "offene Team Todos", todos_path %></li>
                           <li><%= link_to "User bearbeiten", users_path %></li>
                       <!-- dropdown menu links -->
                   </ul>

@@ -2,13 +2,22 @@ class TodosController < ApplicationController
   # GET /todos
   # GET /todos.json
   def index
-    @todos = Todo.order("project_id").all(:conditions => "user_id = #{current_user.id} and  state != 'fertig'")
+    @todos = Todo.order("project_id").all(:conditions => "team_id = #{current_user.team_id} and  state != 'fertig'")
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @todos }
     end
   end
+
+  def my_todos
+    @todos = Todo.order("project_id").all(:conditions => "user_id = #{current_user.id} and  state != 'fertig'")
+    respond_to do |format|
+            format.html # index.html.erb
+            format.json { render :json => @todos }
+          end
+    end
+
 
   # GET /todos/1
   # GET /todos/1.json

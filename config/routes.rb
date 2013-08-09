@@ -39,6 +39,11 @@ FullcalendarAssets::Application.routes.draw do
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
+  match 'projectsearch' => 'projects#search'
+  match 'myprojects' => 'projects#my_projects'
+  match 'mytodos' => 'todos#my_todos'
+  match 'projectcopy/:id' => 'projects#copy'
+  match 'projects/:action/:title' => 'projects#index'
   match 'project/show_todos/:id' => 'projects#show_todos'
   match 'project/report/:id' => 'projects#report'
   match 'projects/:id' => 'projects#sort'
