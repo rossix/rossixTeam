@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d802fb7f-114d-4aa3-b58f-908a37c18b6b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/todos/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/todos/_form.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/todos/show.html.erb" afterPath="$PROJECT_DIR$/app/views/todos/show.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/todo.rb" afterPath="$PROJECT_DIR$/app/models/todo.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="rossixTeam.iws" />
@@ -1029,7 +1026,7 @@
       <workItem from="1391665449552" duration="906000" />
       <workItem from="1393593138007" duration="351000" />
       <workItem from="1393593552052" duration="9978000" />
-      <workItem from="1393660093576" duration="2433000" />
+      <workItem from="1393660093576" duration="2445000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1370368851743</created>
@@ -1119,11 +1116,15 @@
       <created>1393661590811</created>
       <updated>1393661590811</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="v 0.9.8-5&#10;">
+      <created>1393664299444</created>
+      <updated>1393664299444</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16590000" />
+    <option name="totallyTimeSpent" value="16602000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1233,7 +1234,8 @@
     <MESSAGE value="v 0.9.8-1" />
     <MESSAGE value="v 0.9.8-2" />
     <MESSAGE value="v 0.9.8-5" />
-    <option name="LAST_COMMIT_MESSAGE" value="v 0.9.8-5" />
+    <MESSAGE value="v 0.9.8-5&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="v 0.9.8-5&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
