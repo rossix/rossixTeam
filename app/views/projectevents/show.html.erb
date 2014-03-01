@@ -7,6 +7,8 @@
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
   <dd><%= @projectevent.title %></dd>
+  <dt><strong>Bearbeiter:</strong></dt>
+  <dd><%= @projectevent.user.name %> &nbsp</dd>
   <dt><strong><%= model_class.human_attribute_name(:starts_at) %>:</strong></dt>
   <dd><%= @projectevent.starts_at %></dd>
   <dt><strong><%= model_class.human_attribute_name(:ends_at) %>:</strong></dt>

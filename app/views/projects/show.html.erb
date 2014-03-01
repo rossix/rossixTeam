@@ -1,9 +1,7 @@
 <%= form_for @project, :html => {:class => 'form-horizontal'} do |f| %>
     <h2>Projekt anzeigen</h2>
-    <%= link_to t('.print'),
-                "/project",
-                :class => 'btn btn-primary' %>
-    <div>
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <div>
     <dl class="dl-horizontal">
       <dt><strong>Titel: </strong></dt>
       <dd><%= @project.title %></dd>
@@ -36,22 +34,25 @@
                         <th>Milestone</th>
                         <th>Beginn</th>
                         <th>Ende</th>
-                        <th>Status</th>
+
 
                     </tr>
                     </thead>
 
                     <% @projectevents.each do |projectevent| %>
+
+                                <% @badge = "badge" %>
+                                <% if projectevent.state=="offen"; @badge= "badge-important"; end %>
+                                <% if projectevent.state=="in Arbeit"; @badge= "badge-warning"; end %>
+                                <% if projectevent.state=="fertig"; @badge= "badge-success"; end %>
+
                         <tr>
                             <td>
-                                <span class="badge badge-warning">Milestone</span> <a href=<%= "/projectevent/#{projectevent.id}" %> ><%= projectevent.title %></a>
 
+                                <span class="badge <%= "#{@badge}" %>">Milestone</span> <a href=<%= "/projectevent/#{projectevent.id}" %> ><%= projectevent.title %></a>
                             </td>
                             <td><%= projectevent.starts_at.strftime("%d.%m.%y") %></td>
                             <td><%= projectevent.ends_at.strftime("%d.%m.%y") %></td>
-                            <td><%= projectevent.state %></td>
-
-
                         </tr>
                     <% end %>
                     </tbody>
@@ -72,6 +73,7 @@
 
                 <ul id="todos" data-update-url="<%= sort_todos_url %>">
                    <% @todos.each do |todo| %>
+                        <% @badge = "badge" %>
                         <% if todo.state=="offen"; @badge= "badge-important"; end %>
                         <% if todo.state=="in Arbeit"; @badge= "badge-warning"; end %>
                         <% if todo.state=="fertig"; @badge= "badge-success"; end %>

@@ -77,7 +77,7 @@ class ProjecteventsController < ApplicationController
     @projectevent = Projectevent.find(params[:id])
 
     respond_to do |format|
-      if @projectevent.update_attributes(params[:project])
+      if @projectevent.update_attributes(params[:projectevent])
         format.html { redirect_to @projectevent, :notice => 'Projectevent was successfully updated.' }
         format.json { head :no_content }
       else

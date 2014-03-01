@@ -46,6 +46,7 @@ FullcalendarAssets::Application.routes.draw do
   match 'projects/:action/:title' => 'projects#index'
   match 'project/show_todos/:id' => 'projects#show_todos'
   match 'project/report/:id' => 'projects#report'
+  match 'projects/:id' => 'projects#show'
   match 'projects/:id' => 'projects#sort'
   match 'projectevents/new/:id' => 'projectevents#new'
   match 'projectevent/:id' => 'projectevents#showmilestone'

@@ -32,7 +32,15 @@
       <%= f.text_field :ends_at, :class => 'datetime_select' %>
     </div>
   </div>
-
+    <div class="control-group">
+            <%= f.label :status, :class => 'control-label' %>
+          <div class="controls">
+            <%= select(:projectevent, :state, [@projectevent.state,
+                             "offen",
+                             "in Arbeit",
+                             "fertig",]) %></td>
+          </div>
+        </div>
 
   <div class="control-group">
     <%= f.label :description, :class => 'control-label' %>
